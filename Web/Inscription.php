@@ -31,23 +31,22 @@ if(isset($_POST['submitbutton'])){//check if form was submitted
 		}elseif($_POST['mdp'] != $_POST['mdpverif']) {
 			echo '<script> alert("Les mots de passe ne sont pas similaires"); </script>';
 		}else{
-			$ndc =  $_POST['id'];
-			$mdp = $_POST['mdp'];
-			$mail = $_POST['mail'];
-		
-			$comptes = file_get_contents("comptes.json");
-			$valcomptes = json_decode($comptes,true);
-			$nouveaucompte = array("mdp"=>$mdp,"mail"=>$mail);
-			$valcomptes[$ndc] = $nouveaucompte;
 		
 			if(isset(json_decode($comptes)->$ndc)){
 				echo '<script> alert("Un compte lié à cet identifiant existe déjà!"); </script>';
 			}else{
+				$ndc =  $_POST['id'];
+				$mdp = $_POST['mdp'];
+				$mail = $_POST['mail'];;
+				$comptes = file_get_contents("comptes.json");
+				$valcomptes = json_decode($comptes,true);
 				$nouveaucompte = array("mdp"=>$mdp,"mail"=>$mail);
 				$valcomptes[$ndc] = $nouveaucompte;
 				print_r($valcomptes);
 				$nouvcomptes = json_encode($valcomptes);
 				file_put_contents("comptes.json",$nouvcomptes);
+				fopen("Data/Users/".$ndc.".json", "w");
+				fclose();
 				header("Location: /Projet%20ISN/Fortress%20Market/confirmation.php");
 				exit();
 			}
