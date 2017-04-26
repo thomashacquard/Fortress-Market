@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head> 
-<link  rel="stylesheet" type="text/css" href="stylepage.css"> 
+<link  rel="stylesheet" type="text/css" href="css/stylepage.css"> 
 </head>
 <body>
 
@@ -20,14 +20,15 @@ if(isset($_POST['submitbutton'])){ //check if form was submitted
 $ndc =  $_POST['id'];
 $mdp = $_POST['mdp'];
 
-$comptes = file_get_contents("comptes.json");
+$comptes = file_get_contents("Data/comptes.json");
 $valcomptes = json_decode($comptes);
 
-if(isset($valcomptes->$ndc)){
+if(isset($valcomptes->$ndc) || !file_exists("/Fortress%20Market/Data/Users/".$ndc.".json")){
 	if($mdp == $valcomptes->$ndc->mdp){
 		$_SESSION['utilisateur'] = $ndc;
 		$_SESSION['mail'] = $valcomptes->$ndc->mail;
-		exit();
+		$_SESSION['mdp'] = $mdp;
+		header("Location: /Fortress%20Market/accueil.php");
 	}else{
 	echo '<script> alert("Mot de passe invalide"); </script>';
 	}
