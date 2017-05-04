@@ -1,9 +1,11 @@
-﻿<?php session_start();?>
-
+<?php ob_start();
+session_start();
+?>
 <!DOCTYPE HTML>
 <html>
 <head> 
 <link  rel="stylesheet" type="text/css" href="css/stylepage.css"> 
+<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
 </head>
 <body>
 
@@ -15,6 +17,8 @@
 	Vérification du Mot De Passe: <input type="password" name="mdpverif" class="champ"><br>
 	<input type="submit" name="submitbutton" id="valider">
 </form>
+</br>
+<a href="connexion.php" style="font-size: 12px; margin-left: 40px;">Déjà inscrit? connectez-vous ici!</a>
 </div>
 
 <?php
@@ -31,14 +35,21 @@ if(isset($_POST['submitbutton'])){//check if form was submitted
 		}elseif($_POST['mdp'] != $_POST['mdpverif']) {
 			echo '<script> alert("Les mots de passe ne sont pas similaires"); </script>';
 		}else{
-		
-			if(isset(json_decode($comptes)->$ndc)){
-				echo '<script> alert("Un compte lié à cet identifiant existe déjà!"); </script>';
-			}else{
+				$comptes = file_get_contents("Data/comptes.json");
 				$ndc =  $_POST['id'];
 				$mdp = $_POST['mdp'];
-				$mail = $_POST['mail'];;
-				$comptes = file_get_contents("Data/comptes.json");
+				$mail = $_POST['mail'];
+			if(
+			isset
+			(
+			json_decode
+			(
+			$comptes
+			)
+			->
+			$ndc)){
+				echo '<script> alert("Un compte lié à cet identifiant existe déjà!"); </script>';
+			}else{
 				$valcomptes = json_decode($comptes,true);
 				$nouveaucompte = array("mdp"=>$mdp,"mail"=>$mail);
 				$valcomptes[$ndc] = $nouveaucompte;
@@ -53,6 +64,6 @@ if(isset($_POST['submitbutton'])){//check if form was submitted
 		}
 	}
 }
-?>
+include 'Footer/footer.php';?>
 </body>
 </html>

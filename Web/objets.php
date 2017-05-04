@@ -1,4 +1,6 @@
-﻿<?php session_start(); ?>
+<?php session_start();
+include 'Header/header.php';
+include 'scriptsphp/verif.php'; ?>
 <!DOCTYPE HTML>
 <html>
 <head> 
@@ -6,13 +8,12 @@
 		<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
 		<link  rel="stylesheet" type="text/css" href="css/styletable.css">
 		<link rel="stylesheet" type="text/css" href="Header/header.css">
+		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
 			<!-- Stylesheet -->
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 <div class="pagecontainer">
-<?php include 'Header/header.php';?>
-<?php include 'scriptsphp/verif.php';?>
 
 <script src="scriptsjs/ChargementTableau.js"></script>
 <div id="Tableau">
@@ -22,5 +23,6 @@
 </div>
 
 
+<?php include 'Footer/footer.php';?>
 </body>
 </html>

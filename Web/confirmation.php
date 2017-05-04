@@ -1,9 +1,10 @@
-﻿<?php session_start();?>
+<?php session_start();?>
 
 <!DOCTYPE HTML>
 <html>
 <head> 
 <link  rel="stylesheet" type="text/css" href="css/stylepage.css"> 
+		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
 </head>
 <body>
 
@@ -13,5 +14,6 @@
 </div>
 
 
+<?php include 'Footer/footer.php';?>
 </body>
 </html>

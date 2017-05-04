@@ -1,12 +1,13 @@
-<?php session_start(); ?>
+<?php session_start();
+include 'scriptsphp/verif.php';?>
 <!DOCTYPE HTML>
 <html>
 <head>
 	<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
 	<link  rel="stylesheet" type="text/css" href="css/modalstyle.css">
+		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
 </head>
 <body>
-<?php include 'scriptsphp/verif.php';?>
 	<div class="modalwrapper">
 		<div class="modaltitle" id="modaltitleid">
 			<p class="modaltitle" id="modaltitleid">Suivre l'objet: <?php echo $_POST['object']; ?></p>
@@ -46,14 +47,22 @@
 					
 					$fichierObjet = file_get_contents("Data/Objects/".$_POST['object'].".json");
 					$dataObjet = json_decode($fichierObjet, true);
-					$dataObjet[$_SESSION['utilisateur']] = $_SESSION['mail'];
+					$dataObjet[$_SESSION['utilisateur']]['mail'] = $_SESSION['mail'];
+					$dataObjet[$_SESSION['utilisateur']]['valeur'] = $valeur;
+					$lp = str_replace(",",".",$_POST['lp']);//remplacement , en . pour les nombres a virgules
+					if($lp - $valeur> 0){
+						$dataObjet[$_SESSION['utilisateur']]['type'] = "descendant";
+					}else{
+						$dataObjet[$_SESSION['utilisateur']]['type'] = "montant";
+					}
 					$dataObjet = json_encode($dataObjet);
 					file_put_contents("Data/Objects/".$_POST['object'].".json",$dataObjet);
 					header("Location: /Fortress%20Market/objets.php");
 				}else{echo '<script> alert("Veuillez entrer une valeur différente de 0.");</script>';}
 			}
-		}else{echo '<script>alert("Veuillez entrer une valeur.");</script>';}
+		}else{
+					echo '<script>alert("Veuillez entrer une valeur.");</script>';}
 	}
-?>
+include 'Footer/footer.php';?>
 </body>
 </html>

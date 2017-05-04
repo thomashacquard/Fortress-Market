@@ -1,12 +1,14 @@
-<?php session_start(); ?>
+<?php session_start();
+include 'scriptsphp/verif.php';?>
 <!DOCTYPE HTML>
 <html>
 <head>
 	<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
 	<link  rel="stylesheet" type="text/css" href="css/modalstyle.css">
+		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
 </head>
 <body>
-<?php include 'scriptsphp/verif.php';?>
+
 	<div class="modalwrapper">
 		<div class="modaltitle" id="modaltitleid">
 			<p class="modaltitle" id="modaltitleid">Ne plus suivre l'objet: <?php echo $_POST['object']; ?></p>
@@ -43,6 +45,6 @@
 		file_put_contents("Data/Objects/".$_POST['object'].".json",$dataObjet);
 		header("Location: /Fortress%20Market/suivis.php");
 	}
-?>
+include 'Footer/footer.php';?>
 </body>
 </html>

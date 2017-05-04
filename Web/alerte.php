@@ -1,11 +1,12 @@
-﻿<?php session_start();?>
+<?php session_start();?>
 
 <!DOCTYPE HTML>
 <html>
 <head> 
 <meta charset="UTF-8">
 			<!-- Stylesheet -->
-		<link  rel="stylesheet" type="text/css" href="css/stylepage.css"> 
+		<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
+		<link  rel="stylesheet" type="text/css" href="Footer/footer.css">  
 			<!-- Stylesheet -->
 </head>
 <body>
@@ -15,5 +16,6 @@
 	<p>ou</p>
 	<a href="connexion.php">Connectez vous</a>
 </div>
+<?php include 'Footer/footer.php';?>
 </body>
 </html>
