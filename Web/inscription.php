@@ -39,15 +39,7 @@ if(isset($_POST['submitbutton'])){//check if form was submitted
 				$ndc =  $_POST['id'];
 				$mdp = $_POST['mdp'];
 				$mail = $_POST['mail'];
-			if(
-			isset
-			(
-			json_decode
-			(
-			$comptes
-			)
-			->
-			$ndc)){
+			if(isset(json_decode($comptes)->$ndc)){
 				echo '<script> alert("Un compte lié à cet identifiant existe déjà!"); </script>';
 			}else{
 				$valcomptes = json_decode($comptes,true);
