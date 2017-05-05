@@ -2,8 +2,6 @@
 
 
 //obtention des données du fichier Data.json et décodage
-$filename = "https://docs.google.com/uc?id=0BzRBjlEzHwv0YldXRlUxcWR2U1E&export=download";
-file_put_contents("../Data/Data.json", file_get_contents($filename));
 $jsondatafile = file_get_contents("../Data/Data.json");
 $jsondata = json_decode($jsondatafile);
 //obtention des données du fichier Data.json et décodage

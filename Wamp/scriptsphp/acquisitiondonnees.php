@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <?php
 include("../mail/PHPMailerAutoload.php"); //import de la fonction d'utilisation des mails de la bibliothèque PHPMailer
-$fileurl = "https://docs.google.com/uc?id=0BzRBjlEzHwv0UUxERjdDQVRzYk0&export=download";//téléchargement du fichier contenant la liste des objets
+$fileurl = "../Data/ItemList.json";//téléchargement du fichier contenant la liste des objets
 $itemlist = file_get_contents($fileurl);//lecture du fichier téléchargé
 $jsonitemlist = json_decode($itemlist,true);//le contenu du fichier étant sous format JSON, on le décode pour obtenir une liste (Array)
+echo '<pre>';
+print_r($jsonitemlist);
+echo '</pre>';
 $itemamount = count($jsonitemlist);//on compte le nombre d'objets
 
 for($n=0; $n<=$itemamount-1; $n++){//pour le nombre d'objets existants faire...
