@@ -6,6 +6,7 @@ include 'scriptsphp/verif.php';?>
 	<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
 	<link  rel="stylesheet" type="text/css" href="css/modalstyle.css">
 		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
+		<meta charset="UTF-8"> 
 </head>
 <body>
 
@@ -15,10 +16,10 @@ include 'scriptsphp/verif.php';?>
 		</div>
 		<hr>
 			</br>
-			<p class="modalcontent" id="modalcontentid1">Adresse de notification utilisée: <?php echo $_SESSION['mail']; ?></p>
+			<p class="modalcontent" id="modalcontentid1">Adresse de notification utilisÃ©e: <?php echo $_SESSION['mail']; ?></p>
 			<div id="container">
 			</br>
-				<p class="modalcontent" id="modalcontentid2">Seuil de la valeur du prix minimum choisi : <?php echo $_POST['userlp']; ?>€</p>
+				<p class="modalcontent" id="modalcontentid2">Seuil de la valeur du prix minimum choisi : <?php echo $_POST['userlp']; ?>&euro;</p>
 				<form class="modalform" id="modalformid" method="post">
 					</br>
 					</br>
@@ -31,7 +32,7 @@ include 'scriptsphp/verif.php';?>
 				</form>
 	</div>
 <?php
-	if(isset($_POST['submitbutton'])){//validé?
+	if(isset($_POST['submitbutton'])){//validÃ©?
 		$fichierUtilisateur = file_get_contents("Data/Users/".$_SESSION['utilisateur'].".json");
 		$dataUtilisateur = json_decode($fichierUtilisateur, true);
 		unset($dataUtilisateur[$_POST['object']]);

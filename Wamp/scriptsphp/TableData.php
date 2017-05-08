@@ -17,7 +17,6 @@ function CustomUrlEncode($string) {
 }
 //définition de la fonction pour encoder le text pour qu'il soit utilisable dans une URL
 
-
 foreach($jsondata as $key => $item){
 	echo'<div class="conteneur">';
 		echo'<div class="objet">';

@@ -6,6 +6,7 @@ include 'scriptsphp/verif.php';?>
 	<link  rel="stylesheet" type="text/css" href="css/stylepage.css">
 	<link  rel="stylesheet" type="text/css" href="css/modalstyle.css">
 		<link  rel="stylesheet" type="text/css" href="Footer/footer.css"> 
+		<meta charset="UTF-8"> 
 </head>
 <body>
 	<div class="modalwrapper">
@@ -20,10 +21,10 @@ include 'scriptsphp/verif.php';?>
 				<p class="modalcontent" id="modalcontentid2">Seuil de la valeur du prix minimum :</p>
 				<form class="modalform" id="modalformid" method="post">
 					<input class="modalvalue modalcontent" id="modalvalueid" type="text" name="valeur">
-					<p class="modalcontent" id="modalcontentid3">€</p>
+					<p class="modalcontent" id="modalcontentid3">&euro;</p>
 					</br>
 					</br>
-					<p class="modalcontent" id="modalcontentid4">Pris le plus bas actuel: <?php echo $_POST['lp']; ?> €</p>
+					<p class="modalcontent" id="modalcontentid4">Pris le plus bas actuel: <?php echo $_POST['lp']; ?> &euro;</p>
 					</br>
 					<hr>
 			</div>
@@ -34,10 +35,10 @@ include 'scriptsphp/verif.php';?>
 				</form>
 	</div>
 <?php
-	if(isset($_POST['submitbutton'])){//validé?
-		if(isset($_POST['valeur']) && $_POST['valeur'] != ''){//valeur entrée?
+	if(isset($_POST['submitbutton'])){//validÃ©?
+		if(isset($_POST['valeur']) && $_POST['valeur'] != ''){//valeur entrÃ©e?
 			$valeur = str_replace(",",".",$_POST['valeur']);//remplacement , en . pour les nombres a virgules
-			if(is_numeric($valeur)){//on vérifie que tout ça est bien un nombre
+			if(is_numeric($valeur)){//on vÃ©rifie que tout cela est bien un nombre
 				if($valeur != 0){
 					$fichierUtilisateur = file_get_contents("Data/Users/".$_SESSION['utilisateur'].".json");
 					$dataUtilisateur = json_decode($fichierUtilisateur, true);
