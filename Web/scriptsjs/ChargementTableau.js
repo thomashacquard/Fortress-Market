@@ -1,1 +1,0 @@
-$(function() { $("#Tableau").load("scriptsphp/TableData.php"); });
