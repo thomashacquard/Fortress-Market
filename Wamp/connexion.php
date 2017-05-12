@@ -24,7 +24,7 @@ Mot De Passe: <input type="password" name="mdp" class="champ"><br>
 if(isset($_POST['submitbutton'])){ //check if form was submitted
 $ndc =  $_POST['id'];
 $mdp = $_POST['mdp'];
-	if(empty($id) || empty($mdp)){
+	if(empty($ndc) || empty($mdp)){
 		echo '<script> alert("Veuillez remplir tous les champs."); </script>';
 	}else{
 $comptes = file_get_contents("Data/comptes.json");
