@@ -23,7 +23,7 @@ session_start();
 </div>
 
 <?php
-if(isset($_POST['submitbutton'])){//check if form was submitted
+if(isset($_POST['submitbutton'])){
 	$id = $_POST['id'];
 	$mail = $_POST['mail'];
 	$mdp = $_POST['mdp'];
