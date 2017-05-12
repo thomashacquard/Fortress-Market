@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<div class="textbox"> #Balise générique de type block
+<div class="textbox"> <!--Balise générique de type block-->
 
-<form action="" method="post">	#La balise form est utilisée pour créer un formulaire
+<form action="" method="post">	<!--La balise form est utilisée pour créer un formulaire-->
 	Identifiant: <input type="text" name="id" class="champ"><br>
 	E-Mail: <input type="text" name="mail" class="champ"><br>
 	Mot De Passe: <input type="password" name="mdp" class="champ"><br>
