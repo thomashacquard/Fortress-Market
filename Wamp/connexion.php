@@ -24,7 +24,9 @@ Mot De Passe: <input type="password" name="mdp" class="champ"><br>
 if(isset($_POST['submitbutton'])){ //check if form was submitted
 $ndc =  $_POST['id'];
 $mdp = $_POST['mdp'];
-
+	if(empty($id) || empty($mdp)){
+		echo '<script> alert("Veuillez remplir tous les champs."); </script>';
+	}else{
 $comptes = file_get_contents("Data/comptes.json");
 $valcomptes = json_decode($comptes);
 
@@ -39,6 +41,7 @@ if(isset($valcomptes->$ndc) || !file_exists("/Fortress%20Market/Data/Users/".$nd
 	}
 }else{
 	echo '<script> alert("Nom de compte invalide"); </script>';
+}
 }
 }
 include 'Footer/footer.php';?>
