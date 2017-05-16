@@ -1,6 +1,6 @@
 html{
-	margin:0;
-	background-image:url(../Images/background.jpg);
+	margin:0; /*pas d'espace en bas de page*/
+	background-image:url(../Images/background.jpg); /*lien de l'image*/
     overflow-y: scroll;
 }
 
@@ -8,45 +8,45 @@ html{
 	position:absolute;
 	padding-bottom: 50px;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 5%; /*marge de gauche */
+    margin-right: 5%; /*marge de droite */
     border-left: indianred;
     border-left-style: solid;
     border-right: indianred;
     border-right-style: solid;
-    background-color: rgba(147, 157, 166, 0.21);
+    background-color: rgba(147, 157, 166, 0.21); /*définit la couleur utilisée pour la bordure gauche*/
 }
 .textbox{
 	background:#69b5d2;
    border: 2px solid #000000;
    border-radius: 10px;
    vertical-align: middle;
-   min-width:300px;
+   min-width:300px; /*la largeur minimale d'un élément*/
    padding:20px;
    width:300px;
     height: 10%;
     margin-top: 18%;
     margin-left: 40%;
-	font-family: consolas;
-	font-weight: bold;
+	font-family: consolas; /*police*/
+	font-weight: bold; /*poids de la police*/
 }
 .champ{
-    border: 2px solid #b9aaab;
-    background: #eaeaea;
-   border-radius: 4px;
-   color: #69b5d2;
+    border: 2px solid #b9aaab; /*bord de la case*/
+    background: #eaeaea;/*fond de la case*/
+   border-radius: 4px; /*angle de la case*/
+   color: #69b5d2; /*écriture*/
    padding:8px;
    margin-bottom:20px;
    width:280px;
-	font-weight: bold;
+	font-weight: bold; /*gras*/
 }.champ:focus{
     background: white;
 }
-#valider{
+#valider{ /*bouton valider*/
     width: 75%;
     margin-left: 12.5%;
   display: inline-block;
-  cursor: pointer;
+  cursor: pointer; /*lorsque l'on passe dessus, le curseur change de forme*/
   text-align: center;
   text-decoration: none;
   outline: none;
@@ -57,7 +57,7 @@ html{
 	font-family: consolas;
 	font-weight: bold;
 }
-#valider:hover{
+#valider:hover{ /*spécifier l'apparence d'un élément au moment où l'utilisateur le survole avec le pointeur*/
 	background-color:white;
 	transition:0.75s;
 }
